@@ -1,0 +1,367 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Roboto', sans-serif, 'Lato' !important;
+    font-size: 10px;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: background-color .5s ease;
+    z-index: 1000;
+    outline: none;
+}
+
+.container{
+    width: 100%;
+    max-width: 145rem;
+    margin: 0 auto;
+    outline: none;
+    padding: 0 1.5rem;
+}
+
+.nav{
+    width: 100%;
+    height: 6.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(255, 255, 255, 0); /*comment to remove the botttom bar*/
+    transition: height .5s ease;
+    outline: none;
+}
+
+.nav a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    outline: none;
+}
+.nav .logo{
+    font-size: 3.5rem;
+    font-weight: bold;
+    outline: none;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    margin-right: auto;
+    margin-left: 4rem;
+    outline: none;
+}
+
+.nav-link{
+    margin: 0 2rem;
+    position: relative;
+    outline: none;
+}
+
+.nav-link::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s ease;
+}
+
+.nav-link:hover::after{
+    transform: scaleX(1);
+}
+
+#nav-cta{
+    display: inline-block;
+    background-color: #fff;
+    color: #313131;
+    padding: 1rem 2rem;
+    outline: none;
+    border-radius: 2rem;
+    transition: background-color .5s ease;
+}
+
+#nav-cta:hover{
+    background-color: #d3d3d3;
+}
+
+/*Apply styles after scroll*/
+.scrolling-active{
+    background-color: #fff;
+    box-shadow: 0 3px 1rem rgba(0,0,0,.1);
+}
+
+.scrolling-active .nav{
+    height: 6.6rem;
+}
+
+.scrolling-active .nav a{
+    color: #313131;
+}
+
+.scrolling-active #nav-cta{
+    background-color: #313131;
+    color: #fff;
+}
+
+.scrolling-active #nav-cta:hover{
+    background-color: #151515;
+}
+
+.scrolling-active .nav-link::after{
+    background-color: #313131;
+}
+
+/* popup  */
+
+.popup {
+    display: none; 
+    position: fixed;
+    z-index: 1001;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    margin: auto;
+    padding: 20px;
+    border: 5px solid #ff0000ee;
+    width: 30%;
+    background: #f35353;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 1rem 4rem;
+}
+
+/* The Close Popup Button */
+.close-popup {
+    color: #ff0000ee;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+}
+  
+.close-popup:hover,
+.close-popup:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup-link {
+    color: blue;
+    text-decoration: none;
+}
+
+.popup-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.logpoptit {
+    display: flex;
+    width: 100%;
+    position: relative;
+    height: 45px;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.popup-content p{
+    position: absolute;
+    float: left;
+    font-weight: bold;
+    font-size: 50px;
+    color: #E6E6FA;
+}
+
+.logpoptit label {
+    position: absolute;
+    right: 0;
+}
+
+
+/* login form css  */
+.center {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress {
+    position: absolute;
+    background: #ff0000ee;
+    width: 0;
+    height: auto;
+    transition: width 0.2s ease-in-out;
+}
+
+.mainform {
+    background: #fff;
+    position: relative;
+    width: 410px;
+    padding: 2px 15px 20px 15px;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+    transition: transform .1s ease-in-out;
+}
+  
+.close {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: .8s ease-in-out;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0);
+}
+
+.forward {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 40px;
+    color: #ff0000ee;
+    float: right;
+    cursor: pointer;
+}
+  
+.forward:hover {color: #ff0000ee}
+
+.wrong .forward {color: #ff2d26}
+.close .forward {color: #fff}
+
+.inputContainer {
+    position: relative;
+    opacity: 0;
+    width: 350px;
+    margin-top: 25px;
+    transition: opacity .3s ease-in-out;
+}
+  
+.inputContainer input {
+    width: 100%;
+    padding: 0 5px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: 0;
+    background: transparent;
+    box-shadow:none;
+}
+  
+.inputLabel {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 5px;
+    transition: .2s ease-in-out;
+}
+  
+.inputContainer input:valid + .inputLabel {
+    top: -15px;
+    font-size: 11px;
+    font-weight: normal;
+    color: #9e9e9e;
+}
+  
+.inputProgress {
+    position: absolute;
+    border-bottom: 2px solid #ff0000ee;
+    padding: 3px 0;
+    width: 0;
+    transition: width .6s ease-in-out;
+}
+  
+.wrong .inputProgress {
+    border-color: #ff2d26;
+}
+
+.nav .open-nav{
+    padding: 0 8px 2px 8px;
+    margin-right: 10px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+}
+
+.open-nav:hover {
+    background-color: #14151642;
+}
+.sidebar{
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+    z-index: 2000;
+}
+
+.inactive {
+    display: none;
+}
+
+.sidebar button {
+    color: black;
+    padding: 0 8px 2px 8px;
+    background-color: transparent;
+    font-size: 3.5rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    float: right;
+    border-radius: 50%;
+}
+
+.sidebar button:hover {
+    background-color: #14151642;
+}
+
+.sidenavbar {
+    background: white;
+    font-size: 2rem;
+}
+
+.sidebar li{
+    outline:none;
+    padding: 5px;
+    margin: 5px 0 5px 0;
+    border-bottom: 2px sollid rgb(13, 30, 128);
+}
+.sidebar a{
+    text-decoration: none;
+    color: rgb(14, 13, 13);
+    /* font-size: 1.6rem; */
+    cursor: pointer;
+    outline: none;
+}
